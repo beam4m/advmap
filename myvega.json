@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+
+  "data": {"url": "https://raw.githubusercontent.com/Maplub/advmap/master/inf_waste.csv"},
+  "title": "ข้อมูลขยะมูลฝอย ",
+  "selection": {
+    "pts": {
+      "type": "single"
+    }
+  },
+ 
+  "mark": "rect",
+  "encoding": {
+    "x": {"field": "dname",
+          "type": "ordinal",
+           "title":"เขต"},
+
+
+    "y": {"timeUnit":"yearmonth",
+          "field": "month",
+           "type": "ordinal",
+           "title":"Month"},
+    "color": {
+          "field": "wasteamt",
+          "aggregate": "mean",
+          "type": "quantitative",
+          "legend": {
+              "title": "ขยะมูลฝอย"
+          }},"tooltip": [
+                {"field": "wasteamt", "type": "quantitative"}]
+
+          }
+}
